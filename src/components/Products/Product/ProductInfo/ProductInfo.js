@@ -8,7 +8,6 @@ class ProductInfo extends Component {
     data: null,
   };
   componentDidMount() {
-    console.log(this.props.match.params);
     axios
       .get(
         "https://e-commerce-app-464f3.firebaseio.com/" +
@@ -29,12 +28,10 @@ class ProductInfo extends Component {
     let info = <p></p>;
     if (this.state.data) {
       const data = [...this.state.data];
-      console.log(data);
 
       const content = data.filter((el) => {
         return el.name === this.props.match.params.productInfo;
       });
-      console.log(content);
       info = content.map((el) => {
         return (
           <ProductInfoRendering
@@ -53,18 +50,9 @@ class ProductInfo extends Component {
         );
       });
     }
-    // return <p></p>;
     return <React.Fragment>{info}</React.Fragment>;
   }
 }
 
 export default ProductInfo;
-// table-2
-// description:
-// "Well structure, modern, new age, center table t..."
-// image:
-// "https://pelzimages.netlify.app/img/brownMultipu..."
-// "name ":
-// "Brown Multi-purpose Center Table"
-// price:
-// 45000
+

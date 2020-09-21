@@ -22,7 +22,6 @@ class Products extends Component {
           ".json"
       )
       .then((response) => {
-        console.log(response);
         const responseData = [];
         for (const data in response.data) {
           responseData.push(response.data[data]);
@@ -30,9 +29,6 @@ class Products extends Component {
         this.setState({
           data: responseData,
         });
-        if (this.state.data) {
-          console.log(this.state.data);
-        }
       });
   }
 
