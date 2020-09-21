@@ -1,0 +1,50 @@
+.Header {
+  height: 45rem;
+  width: 100%;
+  position: relative;
+}
+
+@media (max-width: 500px) {
+    .Header {
+      height: 36rem;
+    }
+  }
+
+@media (min-width: 900px) {
+  .Header {
+    height: 10rem;
+  }
+}
+
+.Header img {
+  width: 80%;
+  height: 35rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media (max-width: 500px) {
+    .Header img {
+        height: 28rem;
+    }
+}
+@media (min-width: 900px) {
+  .Header img {
+    display: none;
+  }
+}
+
+.Heading {
+  position: absolute;
+  bottom: 0;
+  right: 3rem;
+}
+
+.Heading h1 {
+  font-size: 4rem;
+  letter-spacing: 3px;
+}
+
+.Heading p {
+  font-size: 1.2rem;
+}

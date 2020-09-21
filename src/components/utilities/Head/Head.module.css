@@ -1,0 +1,22 @@
+.Head {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 95%;
+    right: 0;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    top: 2rem;
+    align-items: center;
+}
+@media (max-width: 500px) {
+    .Head {
+        width: 90%;
+    }
+}
+
+.Icon {
+    position: absolute;
+    left: 1.5rem;
+    top: .5rem;
+}

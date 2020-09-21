@@ -1,0 +1,10 @@
+.Div {
+    margin-top: 9rem;
+}
+
+@media (min-width: 700px) {
+    .Div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

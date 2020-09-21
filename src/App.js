@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Layout from "./components/Layout/Layout";
+import StoreOptions from "./components/storeOptions/storeOptions";
+import Products from "./components/Products/Products";
+import ProductInfo from "./components/Products/Product/ProductInfo/ProductInfo";
+import { Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Route
+        path="/"
+        exact
+        render={() => {
+          return (
+            <Layout>
+              <Route path="/" exact component={StoreOptions} />
+            </Layout>
+          );
+        }}
+      />
+      <Route path="/:productType" exact component={Products} />
+      <Route path="/:productType/:productInfo" exact component={ProductInfo} />
+    </React.Fragment>
   );
-}
+};
 
 export default App;

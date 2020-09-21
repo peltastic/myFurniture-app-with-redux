@@ -1,0 +1,66 @@
+.Container {
+    padding: 3rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+@media (min-width: 900px) {
+    .Container {
+        width: 60%;
+        margin: auto;
+    }
+}
+.Container a {
+    flex: 0 0 45%;
+    text-decoration: none;
+    color: black;
+}
+
+.Container div {
+    padding: 2rem 2rem;
+    text-align: left;
+    border: 1px solid #e9b350;
+    background-color: #fff;
+    transition: all .3s;
+    height: 20rem;
+}
+
+@media (max-width: 450px) {
+    .Container div {
+        height: 16rem;
+    }
+}
+
+.Container div img {
+    width: 80%;
+    height: 15rem;
+}
+
+@media (max-width: 450px) {
+    .Container div img{
+        height: 12rem;
+    }
+}
+@media (max-width: 400px) {
+    .Container div img{
+        width: 100%;
+    }
+}
+
+.Container div h1 {
+    display: block;
+    font-size: 1.8rem;
+}
+/* .Container button:focus {
+    outline: none;
+}
+
+.Container button:active {
+    border: none;
+    background-color: #e9b350;
+    color: white;
+} */
+
+.Container a:not(:last-child) {
+    margin-bottom: 2rem;
+}
