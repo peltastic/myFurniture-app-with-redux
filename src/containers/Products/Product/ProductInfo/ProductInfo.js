@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import Spinner from "../../../../components/utilities/Spinner/Spinner"
+import * as productInfoAction from "../../../../store/actions/productInfo";
 
 import ProductInfoRendering from "./ProductInfoRendering/ProductInfoRendering";
 
@@ -8,26 +10,12 @@ class ProductInfo extends Component {
     data: null,
   };
   componentDidMount() {
-    axios
-      .get(
-        "https://e-commerce-app-464f3.firebaseio.com/" +
-          this.props.match.params.productType +
-          ".json"
-      )
-      .then((response) => {
-        const responseData = [];
-        for (const data in response.data) {
-          responseData.push(response.data[data]);
-        }
-        this.setState({
-          data: responseData,
-        });
-      });
+    this.props.fetchProductInfo(this.props.match.params.productType);
   }
   render() {
-    let info = <p></p>;
-    if (this.state.data) {
-      const data = [...this.state.data];
+    let info = <Spinner />;
+    if (this.props.data) {
+      const data = [...this.props.data];
 
       const content = data.filter((el) => {
         return el.name === this.props.match.params.productInfo;
@@ -49,10 +37,27 @@ class ProductInfo extends Component {
           />
         );
       });
+    } else if (this.props.error) {
+      info = (
+        <h1 style={{ color: "red", "fontSize": "20px",}}>FAILED TO FETCH</h1>
+      );
     }
     return <React.Fragment>{info}</React.Fragment>;
   }
 }
 
-export default ProductInfo;
+const mapStateToprops = (state) => {
+  return {
+    data: state.productInfo.data,
+    error: state.productInfo.error
+  };
+};
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchProductInfo: (data) =>
+      dispatch(productInfoAction.fetchProductInfo(data)),
+  };
+};
+
+export default connect(mapStateToprops, mapDispatchToProps)(ProductInfo);

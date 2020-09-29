@@ -1,9 +1,11 @@
 import React from "react";
 import Layout from "./components/Layout/Layout";
 import StoreOptions from "./components/storeOptions/storeOptions";
-import Products from "./components/Products/Products";
-import ProductInfo from "./components/Products/Product/ProductInfo/ProductInfo";
+import Products from "./containers/Products/Products";
+import ProductInfo from "./containers/Products/Product/ProductInfo/ProductInfo";
 import { Route } from "react-router-dom";
+
+
 
 const App = () => {
   return (

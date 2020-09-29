@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "../../Product";
 import classes from "./ProductInfoRendering.module.css";
-import Head from "../../../../utilities/Head/Head";
+import Head from "../../../../../components/utilities/Head/Head";
 
 const productInfoRendering = (props) => {
   return (

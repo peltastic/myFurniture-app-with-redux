@@ -6,11 +6,28 @@ import * as serviceWorker from "./serviceWorker";
 
 import { BrowserRouter } from "react-router-dom";
 
+import { applyMiddleware, createStore, combineReducers } from "redux";
+import { Provider } from "react-redux";
+
+import productInfoReducer from "./store/reducers/productInfo";
+import productsReducer from "./store/reducers/products";
+
+import thunk from 'redux-thunk'
+
+const rootReducers = combineReducers({
+  productInfo: productInfoReducer,
+  products: productsReducer,
+});
+
+const store = createStore(rootReducers, applyMiddleware(thunk));
+
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
